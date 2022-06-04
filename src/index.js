@@ -1,5 +1,3 @@
-import cityCoordinatesFetch from './components/cityCoordinatesFetch.js';
-import getWeather from './components/weatherFetch.js';
+import inputLocationForm from './components/inputLocationForm.js';
 
-cityCoordinatesFetch();
-getWeather();
+inputLocationForm();
