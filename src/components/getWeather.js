@@ -1,3 +1,5 @@
+import displayWeatherInfo from './displayWeatherInfo.js';
+
 const apiKey = '8a227b6cb926c6a88967c261a7dca101';
 
 async function cityCoordinatesFetch(city) {
@@ -14,10 +16,10 @@ async function getWeather(city) {
     const [lat, lon] = waitForCityCoordinates;
     console.log(waitForCityCoordinates);
     const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     );
     const weatherData = await response.json();
-
+    displayWeatherInfo(weatherData);
     console.log(weatherData);
 }
 
