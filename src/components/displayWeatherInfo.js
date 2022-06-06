@@ -1,37 +1,41 @@
 const weatherInfoContainer = document.createElement('div');
+weatherInfoContainer.classList.add('weather-info-container');
 
 function displayWeatherInfo(weatherData) {
     const mainContainer = document.querySelector('.container');
 
-    while (weatherInfoContainer.firstChild) {
-        weatherInfoContainer.replaceChildren();
-    }
-
-    const currentTemp = document.createElement('div');
-    const feelsLikeTemp = document.createElement('div');
-    const humidity = document.createElement('div');
-    const country = document.createElement('div');
-    const windSpeed = document.createElement('div');
-    const weatherDescription = document.createElement('div');
-    const weatherImageIcon = document.createElement('img');
-
-    currentTemp.innerHTML = weatherData.main.temp;
-    feelsLikeTemp.innerHTML = `Feels Like: ${weatherData.main.feels_like}`;
-    humidity.innerHTML = `Humidity Levels: ${weatherData.main.humidity}%`;
-    country.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
-    windSpeed.innerHTML = `Wind: ${weatherData.wind.speed}m/s`;
-    weatherDescription.innerHTML = weatherData.weather[0].description;
-    weatherImageIcon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
-
+    weatherInfoContainer.replaceChildren();
     mainContainer.appendChild(weatherInfoContainer);
 
-    weatherInfoContainer.appendChild(currentTemp);
-    weatherInfoContainer.appendChild(feelsLikeTemp);
-    weatherInfoContainer.appendChild(humidity);
-    weatherInfoContainer.appendChild(country);
-    weatherInfoContainer.appendChild(windSpeed);
-    weatherInfoContainer.appendChild(weatherDescription);
+    addWeatherInfoItem(weatherData.main.temp, 'main-temp');
+    addWeatherInfoItem(
+        `Feels Like: ${weatherData.main.feels_like}`,
+        'feels-like-temp'
+    );
+    addWeatherInfoItem(
+        `Humidity Levels: ${weatherData.main.humidity}%`,
+        'humidity-value'
+    );
+    addWeatherInfoItem(
+        `${weatherData.name}, ${weatherData.sys.country}`,
+        'location-info'
+    );
+    addWeatherInfoItem(`Wind: ${weatherData.wind.speed}m/s`, 'wind-speed');
+    addWeatherInfoItem(
+        weatherData.weather[0].description,
+        'weather-description'
+    );
+    const weatherImageIcon = document.createElement('img');
+    weatherImageIcon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+    weatherImageIcon.classList.add('weather-icon');
     weatherInfoContainer.appendChild(weatherImageIcon);
+
+    function addWeatherInfoItem(contents, className) {
+        const div = document.createElement('div');
+        div.textContent = contents;
+        div.classList.add(className);
+        weatherInfoContainer.appendChild(div);
+    }
 }
 
 export default displayWeatherInfo;
