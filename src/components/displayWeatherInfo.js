@@ -1,5 +1,12 @@
+const weatherInfoContainer = document.createElement('div');
+
 function displayWeatherInfo(weatherData) {
     const mainContainer = document.querySelector('.container');
+
+    while (weatherInfoContainer.firstChild) {
+        weatherInfoContainer.replaceChildren();
+    }
+
     const currentTemp = document.createElement('div');
     const feelsLikeTemp = document.createElement('div');
     const humidity = document.createElement('div');
@@ -16,13 +23,15 @@ function displayWeatherInfo(weatherData) {
     weatherDescription.innerHTML = weatherData.weather[0].description;
     weatherImageIcon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 
-    mainContainer.appendChild(currentTemp);
-    mainContainer.appendChild(feelsLikeTemp);
-    mainContainer.appendChild(humidity);
-    mainContainer.appendChild(country);
-    mainContainer.appendChild(windSpeed);
-    mainContainer.appendChild(weatherDescription);
-    mainContainer.appendChild(weatherImageIcon);
+    mainContainer.appendChild(weatherInfoContainer);
+
+    weatherInfoContainer.appendChild(currentTemp);
+    weatherInfoContainer.appendChild(feelsLikeTemp);
+    weatherInfoContainer.appendChild(humidity);
+    weatherInfoContainer.appendChild(country);
+    weatherInfoContainer.appendChild(windSpeed);
+    weatherInfoContainer.appendChild(weatherDescription);
+    weatherInfoContainer.appendChild(weatherImageIcon);
 }
 
 export default displayWeatherInfo;
