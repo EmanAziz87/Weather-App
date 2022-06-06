@@ -6,15 +6,20 @@ function inputLocationForm() {
     const userInput = document.createElement('input');
     userInput.setAttribute('type', 'text');
     userInput.classList.add('search-bar');
+    userInput.placeholder = 'Toronto, CA';
 
     const searchButton = document.createElement('input');
     searchButton.setAttribute('type', 'submit');
     searchButton.classList.add('submit-button');
 
-    mainContainer.appendChild(userInput);
-    mainContainer.appendChild(searchButton);
+    const searchContainer = document.createElement('div');
+    searchContainer.classList.add('search-container');
+    searchContainer.appendChild(userInput);
+    searchContainer.appendChild(searchButton);
 
-    getWeather('Toronto');
+    mainContainer.appendChild(searchContainer);
+
+    getWeather('Burlington, CA');
 
     searchButton.addEventListener('click', () => {
         getWeather(userInput.value).catch((error) => {
