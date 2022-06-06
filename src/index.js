@@ -1,3 +1,4 @@
-import inputLocationForm from './components/inputLocationForm.js';
+import inputLocationForm from './components/scripts/inputLocationForm.js';
+import './components/styling/style.css';
 
 inputLocationForm();
