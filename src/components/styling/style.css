@@ -80,10 +80,12 @@ body {
 
 .main-temp {
     font-size: 2rem;
+    font-weight: 700;
 }
 
 .location-info {
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .sun-icon {
@@ -96,7 +98,7 @@ body {
 
 .cloud-container {
     position: fixed;
-    width: 1500px;
+    width: 1200px;
     height: 100vh;
 }
 
