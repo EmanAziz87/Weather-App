@@ -19,7 +19,7 @@ function inputLocationForm() {
 
     mainContainer.appendChild(searchContainer);
 
-    getWeather('Burlington, CA');
+    getWeather('Toronto, CA');
 
     searchButton.addEventListener('click', () => {
         getWeather(userInput.value).catch((error) => {
