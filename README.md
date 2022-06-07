@@ -6,4 +6,5 @@ The project also utilizes a component based development approach with webpack, u
 
 Below is the project in action!
 
-![weather app giphy](https://user-images.githubusercontent.com/90656124/172436160-7037f5f6-3a19-4d74-9311-3d1844552a7e.gif)
+![weather app giphy](https://user-images.githubusercontent.com/90656124/172441553-c16e32fe-9366-4e0c-9712-df19fc41bd7b.gif)
+
